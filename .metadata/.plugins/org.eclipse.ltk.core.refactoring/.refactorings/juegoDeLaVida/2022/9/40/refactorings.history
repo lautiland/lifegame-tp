@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;juegoDeLaVida/src/comprobar.cpp&apos; to &apos;comproba.cpp&apos;" description="Rename resource &apos;comprobar.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/comprobar.cpp" name="comproba.cpp" stamp="1664211724488" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;juegoDeLaVida/src/datosMatriz.h&apos; to &apos;tableroMatriz.h&apos;" description="Rename resource &apos;datosMatriz.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/datosMatriz.h" name="tableroMatriz.h" stamp="1664236618437" updateReferences="true"/>
-</session>

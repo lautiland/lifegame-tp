@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;juegoDeLaVida/src/ingresarCelulas&apos; to &apos;ingresarCelulas.cpp&apos;" description="Rename resource &apos;ingresarCelulas&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/ingresarCelulas" name="ingresarCelulas.cpp" stamp="1661942935078" updateReferences="true"/>
-</session>
