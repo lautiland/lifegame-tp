@@ -1,0 +1,57 @@
+/*
+ * ingresarCelulas.cpp
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#include "tableroMatriz.h"
+#include <iostream>
+
+using namespace std;
+
+void ingresarCelulas(struct Celula * matriz, struct Tablero tablero){
+
+	int otra = 1;
+	int fila_celula;
+	int columna_celula;
+	while (otra == 1){
+
+		//pide un numero de fila y columna, y comprueba su existencia
+		do{
+			cout<<endl<<"Ingrese el numero de fila de la célula viva: ";
+			cin>>fila_celula;
+			if (fila_celula <= 0 || fila_celula > tablero.filas){
+				cout<<endl<<"La fila ingresada no es válida"<<endl;
+			}
+		}while(fila_celula <= 0 || fila_celula > tablero.filas);
+		do{
+			cout<<endl<<"Ingrese el numero de columna de la célula viva: ";
+			cin>>columna_celula;
+			if (columna_celula <= 0 || columna_celula > tablero.columnas){
+				cout<<endl<<"La columna ingresada no es válida"<<endl;
+			}
+		}while(columna_celula <= 0 || columna_celula > tablero.columnas);
+
+		fila = fila_celula -1;
+		columna = columna_celula -1;
+
+		//prueba que la célula ingresada no haya sido ingresada
+		if (matriz[(fila_celula - 1)][(columna_celula - 1)]->estado == viva){
+			cout<<endl<<"Esa célula viva ya ha sido ingresada"<<endl;
+		}else if (matriz[(fila_celula - 1)][(columna_celula - 1)]->estado == muerta){
+
+			// añade la célula a la matriz
+			matriz[(fila_celula - 1)][(columna_celula - 1)]->estado = viva;
+		}
+		do{
+			//nos pregunta si deseamos seguir ingresando células
+			cout<<endl<<"¿Desea ingresar otra célula viva?"<<endl<<"1. Si   2. No"<<endl<<endl;
+			cin>>otra;
+			if ((otra != 1) && (otra !=2)){
+				cout<<endl<<"Se ingresó un valor incorrecto"<<endl;
+			}
+		}while((otra != 1) && (otra !=2));
+	}
+}
+

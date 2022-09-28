@@ -1,0 +1,38 @@
+/*
+ * datosTurno.h
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#ifndef DATOSTURNO_H_
+#define DATOSTURNO_H_
+
+enum SiguienteTurno {
+	seguir,
+	noSeguir
+};
+
+struct Informacion {
+	float turno;
+	float nacidasTotal;
+	float muertasTotal;
+	int vivasTotal;
+	int nacidas;
+	int muertas;
+	SiguienteTurno sigTurno;
+
+}datos;
+
+void mostrarDatos(struct Informacion* datos);
+void comprobar(struct Celula** matriz, struct Tablero tablero, struct Informacion * datos);
+SiguienteTurno preguntar();
+
+float promedioNacidas;
+float promedioMuertas;
+
+int deseo;
+
+SiguienteTurno sigTurno;
+
+#endif /* DATOSTURNO_H_ */

@@ -1,0 +1,200 @@
+/*
+ * comprobar.cpp
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#include "tableroMatriz.h"
+#include "datosTurno.h"
+#include <iostream>
+
+void comprobar(struct Celula** matriz, struct Tablero tablero, struct Informacion * datos){
+
+	datos->nacidas = 0;
+	datos->muertas = 0;
+
+	//copia el tablero al tablero auxiliar
+	for (int i = 0; i < tablero.filas; i ++){
+		for (int j = 0; j < tablero.columnas; j++){
+			AUX[i][j].estado = matriz[i][j].estado;
+		}
+	}
+
+	//hace los cálculos de cuantas vivas hay al rededor de cada célula
+	for (int i = 0; i < tablero.filas; i ++){
+		for (int j = 0; j < tablero.columnas; j++){
+			int vivas = 0;
+			switch(matriz[i][j].tipo){
+				case interior:
+					if (matriz[i-1][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j+1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i][j+1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j+1].estado == viva){
+						vivas += 1;
+					}
+					break;
+				case bordeSup:
+					if (matriz[i][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i][j+1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j+1].estado == viva){
+						vivas += 1;
+					}
+					break;
+				case bordeInf:
+					if (matriz[i][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j+1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i][j+1].estado == viva){
+						vivas += 1;
+					}
+					break;
+				case bordeDer:
+					if (matriz[i-1][j].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j].estado == viva){
+						vivas += 1;
+					}
+					break;
+				case bordeIzq:
+					if (matriz[i-1][j].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j+1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i][j+1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j+1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j].estado == viva){
+						vivas += 1;
+					}
+					break;
+				case esqSupIzq:
+					if (matriz[i][j+1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j+1].estado == viva){
+						vivas += 1;
+					}
+					break;
+				case esqSupDer:
+					if (matriz[i][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i+1][j].estado == viva){
+						vivas += 1;
+					}
+					break;
+				case esqInfIzq:
+					if (matriz[i-1][j].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j+1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i][j+1].estado == viva){
+						vivas += 1;
+					}
+					break;
+				case esqInfDer:
+					if (matriz[i][j-1].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j].estado == viva){
+						vivas += 1;
+					}
+					if (matriz[i-1][j-1].estado == viva){
+						vivas += 1;
+					}
+					break;
+			}
+
+			//comprueba las reglas con la célula
+
+			if ((matriz[i][j].estado == muerta) && (vivas == 3)){
+
+				//hace vivir a la célula por reproducción
+				AUX[i][j].estado = viva;
+				datos->nacidas += 1;
+			}
+			if ((matriz[i][j].estado == viva) && ((vivas < 2)||(vivas > 3))){
+
+				//mata a la célula por sobrepoblación o soledad
+				AUX[i][j].estado = muerta;
+				datos->muertas += 1;
+			}
+		}
+	}
+
+	//copia el tablero auxiliar al tablero
+	for (int i = 0; i < tablero.filas; i ++){
+		for (int j = 0; j < tablero.columnas; j++){
+			matriz[i][j].estado = AUX[i][j].estado;
+
+			//cuenta las células vivas a medida que va copiando
+			if (matriz[i][j].estado == viva){
+				datos->vivasTotal +=1;
+			}
+		}
+	}
+}
+
+
+

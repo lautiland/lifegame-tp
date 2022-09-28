@@ -1,0 +1,45 @@
+/*
+ * inicializar.cpp
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#include "tableroMatriz.h"
+
+void inicializar(Celula** ppmatriz, Tablero tablero){
+
+	for (int i = 0; i < tablero.filas; i++){
+		for (int j = 0; j < tablero.columnas; j++){
+			ppmatriz[i][j].estado = muerta;
+			if (i == 0){
+				if (j == 0){
+					ppmatriz[i][j].tipo = esqSupIzq;
+				}else if (j == (tablero.columnas - 1)){
+					ppmatriz[i][j].tipo = esqSupDer;
+				}else{
+					ppmatriz[i][j].tipo = bordeInf;
+				}
+			}else if (j == 0){
+				if (i == (tablero.filas -1)){
+					ppmatriz[i][j].tipo = esqInfIzq;
+				}else{
+					ppmatriz[i][j].tipo = bordeIzq;
+				}
+			}else if (i == (tablero.filas - 1)){
+				if (j == (tablero.columnas - 1)){
+					ppmatriz[i][j].tipo = esqInfDer;
+				}else{
+					ppmatriz[i][j].tipo = bordeInf;
+				}
+			}else if (j == (tablero.columnas - 1)){
+				ppmatriz[i][j].tipo = bordeDer;
+
+			}else{
+				ppmatriz[i][j].tipo = interior;
+			}
+		}
+	}
+}
+
+

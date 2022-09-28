@@ -1,0 +1,16 @@
+/*
+ * mostrarDatos.h
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#ifndef MOSTRARDATOS_H_
+#define MOSTRARDATOS_H_
+
+void mostrarDatos(struct Informacion * datos);
+
+float promedioNacidas;
+float promedioMuertas;
+
+#endif /* MOSTRARDATOS_H_ */

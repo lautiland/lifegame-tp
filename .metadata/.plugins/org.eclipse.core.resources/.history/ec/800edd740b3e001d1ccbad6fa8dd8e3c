@@ -1,0 +1,45 @@
+/*
+ * inicializar.cpp
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#include "tableroMatriz.h"
+
+void inicializar(struct Celula* matriz, struct Tablero tablero){
+
+	for (int i = 0; i < tablero.filas; i++){
+		for (int j = 0; j < tablero.columnas; j++){
+			matriz->estado = muerta;
+			if (i == 0){
+				if (j == 0){
+					matriz->tipo = esqSupIzq;
+				}else if (j == (tablero.columnas - 1)){
+					matriz->tipo = esqSupDer;
+				}else{
+					matriz->tipo = bordeInf;
+				}
+			}else if (j == 0){
+				if (i == (tablero.filas -1)){
+					matriz->tipo = esqInfIzq;
+				}else{
+					matriz->tipo = bordeIzq;
+				}
+			}else if (i == (tablero.filas - 1)){
+				if (j == (tablero.columnas - 1)){
+					matriz->tipo = esqInfDer;
+				}else{
+					matriz->tipo = bordeInf;
+				}
+			}else if (j == (tablero.columnas - 1)){
+				matriz->tipo = bordeDer;
+
+			}else{
+				matriz->tipo = interior;
+			}
+		}
+	}
+}
+
+

@@ -1,0 +1,34 @@
+/*
+ * preguntar.cpp
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#include <iostream>
+
+using namespace std;
+
+SiguienteTurno preguntar(){
+
+	//nos pregunta que deseamos realizar a continuación
+	cout<<endl<<"¿Que desea hacer?"<<endl<<"1. Ejecutar un turno   2. Reiniciar el juego   3. Terminar"<<endl<<endl;
+	cin>>deseo;
+	cout<<endl<<endl;
+	switch(deseo){
+		case 1:
+			sigTurno = seguir;
+			break;
+		case 2:
+			sigTurno = noSeguir;
+			//main();
+			break;
+		case 3:
+			sigTurno = noSeguir;
+			break;
+	}
+	return sigTurno;
+}
+
+
+

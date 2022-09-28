@@ -1,0 +1,13 @@
+/*
+ * imprimirMatriz.h
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#ifndef IMPRIMIRMATRIZ_H_
+#define IMPRIMIRMATRIZ_H_
+
+void imprimirMatriz(struct Celula * matriz[20][80]);
+
+#endif /* IMPRIMIRMATRIZ_H_ */

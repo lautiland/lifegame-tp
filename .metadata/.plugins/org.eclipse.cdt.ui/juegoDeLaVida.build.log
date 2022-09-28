@@ -1,0 +1,56 @@
+01:36:34 **** Incremental Build of configuration Debug for project juegoDeLaVida ****
+make all 
+Building file: ../src/datosTurno.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/datosTurno.d" -MT"src/datosTurno.d" -o "src/datosTurno.o" "../src/datosTurno.cpp"
+Finished building: ../src/datosTurno.cpp
+ 
+Building file: ../src/principal.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/principal.d" -MT"src/principal.d" -o "src/principal.o" "../src/principal.cpp"
+In file included from ../src/principal.cpp:13:0:
+../src/tableroMatriz.h:11:18: error: variable or field ‘inicializar’ declared void
+ void inicializar(Celula** matriz, Tablero tablero);
+                  ^
+../src/tableroMatriz.h:11:18: error: ‘Celula’ was not declared in this scope
+../src/tableroMatriz.h:11:27: error: ‘matriz’ was not declared in this scope
+ void inicializar(Celula** matriz, Tablero tablero);
+                           ^
+../src/tableroMatriz.h:11:35: error: ‘Tablero’ was not declared in this scope
+ void inicializar(Celula** matriz, Tablero tablero);
+                                   ^
+../src/tableroMatriz.h:12:22: error: variable or field ‘ingresarCelulas’ declared void
+ void ingresarCelulas(Celula** matriz, Tablero tablero);
+                      ^
+../src/tableroMatriz.h:12:22: error: ‘Celula’ was not declared in this scope
+../src/tableroMatriz.h:12:31: error: ‘matriz’ was not declared in this scope
+ void ingresarCelulas(Celula** matriz, Tablero tablero);
+                               ^
+../src/tableroMatriz.h:12:39: error: ‘Tablero’ was not declared in this scope
+ void ingresarCelulas(Celula** matriz, Tablero tablero);
+                                       ^
+../src/tableroMatriz.h:13:21: error: variable or field ‘imprimirMatriz’ declared void
+ void imprimirMatriz(Celula** matriz, Tablero tablero);
+                     ^
+../src/tableroMatriz.h:13:21: error: ‘Celula’ was not declared in this scope
+../src/tableroMatriz.h:13:30: error: ‘matriz’ was not declared in this scope
+src/subdir.mk:24: fallo en las instrucciones para el objetivo 'src/principal.o'
+ void imprimirMatriz(Celula** matriz, Tablero tablero);
+                              ^
+../src/tableroMatriz.h:13:38: error: ‘Tablero’ was not declared in this scope
+ void imprimirMatriz(Celula** matriz, Tablero tablero);
+                                      ^
+../src/principal.cpp: In function ‘int main()’:
+../src/principal.cpp:37:31: error: ‘inicializar’ was not declared in this scope
+  inicializar(ppmatriz, tablero);
+                               ^
+../src/principal.cpp:41:35: error: ‘ingresarCelulas’ was not declared in this scope
+  ingresarCelulas(ppmatriz, tablero);
+                                   ^
+../src/principal.cpp:47:34: error: ‘imprimirMatriz’ was not declared in this scope
+  imprimirMatriz(ppmatriz, tablero);
+                                  ^
+make: *** [src/principal.o] Error 1
+
+01:36:34 Build Finished (took 362ms)
+

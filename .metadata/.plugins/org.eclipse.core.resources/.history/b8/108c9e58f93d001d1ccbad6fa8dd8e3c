@@ -1,0 +1,16 @@
+/*
+ * preguntar.h
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#ifndef PREGUNTAR_H_
+#define PREGUNTAR_H_
+
+int preguntar();
+
+int deseo;
+SiguienteTurno sigTurno;
+
+#endif /* PREGUNTAR_H_ */

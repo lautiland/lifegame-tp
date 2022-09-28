@@ -1,0 +1,40 @@
+01:21:37 **** Incremental Build of configuration Debug for project Pruebas ****
+make all 
+Building file: ../src/pruebas.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/pruebas.d" -MT"src/pruebas.d" -o "src/pruebas.o" "../src/pruebas.cpp"
+../src/pruebas.cpp:24:1: error: ‘tablero’ does not name a type
+ tablero.filas = 10;
+ ^
+../src/pruebas.cpp:25:1: error: ‘tablero’ does not name a type
+ tablero.columnas = 40;
+ ^
+../src/pruebas.cpp:27:28: error: array bound is not an integer constant before ‘]’ token
+ Celula matriz[tablero.filas][tablero.columnas];
+                            ^
+../src/pruebas.cpp:27:46: error: array bound is not an integer constant before ‘]’ token
+ Celula matriz[tablero.filas][tablero.columnas];
+                                              ^
+../src/pruebas.cpp:29:22: error: variable or field ‘ingresarCelulas’ declared void
+ void ingresarCelulas(matriz[tablero.filas][tablero.columnas]);
+                      ^
+../src/pruebas.cpp:29:22: error: ‘matriz’ was not declared in this scope
+../src/pruebas.cpp: In function ‘int main()’:
+../src/pruebas.cpp:35:4: error: ‘matriz’ was not declared in this scope
+    matriz[i][j].fila = i;
+    ^
+../src/pruebas.cpp:41:18: error: ‘matriz’ was not declared in this scope
+  ingresarCelulas(matriz);
+                  ^
+../src/pruebas.cpp:41:24: error: ‘ingresarCelulas’ was not declared in this scope
+  ingresarCelulas(matriz);
+                        ^
+../src/pruebas.cpp: At global scope:
+../src/pruebas.cpp:64:16: error: expected constructor, destructor, or type conversion before ‘(’ token
+ ingresarCelulas(matriz[tablero.filas][tablero.columnas]){
+                ^
+make: *** [src/pruebas.o] Error 1
+src/subdir.mk:18: fallo en las instrucciones para el objetivo 'src/pruebas.o'
+
+01:21:37 Build Finished (took 159ms)
+

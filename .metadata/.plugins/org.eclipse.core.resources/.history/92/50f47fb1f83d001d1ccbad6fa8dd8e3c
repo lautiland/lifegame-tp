@@ -1,0 +1,19 @@
+/*
+ * comprobar.h
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#ifndef COMPROBAR_H_
+#define COMPROBAR_H_
+
+void comprobar(struct Celula * matriz[20][80], struct Informacion * datos);
+
+//crea un tablero auxiliar para ir poniendo el resultado
+
+struct CelulaAuxiliar {
+	Estado estado;
+}AUX[20][80];
+
+#endif /* COMPROBAR_H_ */

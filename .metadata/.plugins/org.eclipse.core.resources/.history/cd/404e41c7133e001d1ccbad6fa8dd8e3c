@@ -1,0 +1,36 @@
+/*
+ * mostrarDatos.cpp
+ *
+ *  Created on: 26/09/2022
+ *      Author: algo2
+ */
+
+#include "datosTurno.h"
+#include <iostream>
+
+using namespace std;
+
+void mostrarDatos(struct Informacion* datos){
+
+	//hace los cálculos de totales y promedios
+	datos->nacidasTotal += datos->nacidas;
+	datos->muertasTotal += datos->muertas;
+	promedioNacidas = datos->nacidasTotal / datos->turno;
+	promedioMuertas = datos->muertasTotal / datos->turno;
+
+	//imprime los datos del turno
+	cout<<endl<<"La cantidad de células vivas es de "<<datos->vivasTotal<<endl;
+	cout<<"La cantidad de células nacidas en el ultimo turno es de "<<datos->nacidas<<endl;
+	cout<<"La cantidad de células muertas en el ultimo turno es de "<<datos->muertas<<endl;
+	cout.precision(2);
+	cout<<"El promedio de nacimientos en el juego es de "<<fixed<<promedioNacidas<<endl;
+	cout<<"El promedio de muertes en el juego es de "<<fixed<<promedioMuertas<<endl;
+
+	//comprueba si el juego se congeló
+	if (datos->nacidas == 0 && datos->muertas == 0){
+		cout<<"El juego se congeló en el ultimo turno"<<endl;
+	}
+}
+
+
+
